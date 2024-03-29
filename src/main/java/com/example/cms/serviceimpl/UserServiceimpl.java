@@ -92,8 +92,9 @@ public class UserServiceimpl implements UserService {
 		}).orElseThrow(() -> new UserNotFoundException("user not found with given id"));
 
 	}
-
-	private UserResponsedto mapToUserSoftdelete(User user) {
+    //not required
+	private UserResponsedto mapToUserSoftdelete(User user) 
+	{
 		user.setDeleted(true);
 		userRepository.save(user);
 		return mapToUserResponse(user);
